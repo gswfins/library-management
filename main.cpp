@@ -37,14 +37,14 @@ public:
         return ISBN;
     }
 
-    // void borrowBook() {
-    //     if (available) {
-    //         available = false;
-    //         cout << "✅ Book borrowed successfully.\n";
-    //     } else {
-    //         cout << "❌ Book is currently unavailable.\n";
-    //     }
-    // }
+    void borrowBook() {
+        if (available) {
+            available = false;
+            cout << "✅ Book borrowed successfully.\n";
+        } else {
+            cout << "❌ Book is currently unavailable.\n";
+        }
+    }
 
     void returnBook() {
         available = true;
