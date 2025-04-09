@@ -60,6 +60,19 @@ public:
             }
         }
     }
+
+    static void displayAllBooks(Book books[], int size) {
+        cout << "\n📖 Current list of books:\n\n";
+        cout << left << setw(20) << "Title"
+             << setw(20) << "Author"
+             << setw(15) << "ISBN"
+             << setw(10) << "Available"
+             << setw(15) << "Date Added" << endl;
+
+        for (int i = 0; i < size; i++) {
+            books[i].displayBookDetails();
+        }
+    }
 };
 
 int main() {
@@ -73,17 +86,7 @@ int main() {
     Book::sortBookData(books, 5);
 
     cout << "\n📚 Welcome to the Library System 📚\n";
-    cout << "List of available books:\n\n";
-
-    cout << left << setw(20) << "Title"
-         << setw(20) << "Author"
-         << setw(15) << "ISBN"
-         << setw(10) << "Available"
-         << setw(15) << "Date Added" << endl;
-
-    for (int i = 0; i < 5; i++) {
-        books[i].displayBookDetails();
-    }
+    Book::displayAllBooks(books, 5);
 
     string inputISBN;
     while (true) {
@@ -108,6 +111,8 @@ int main() {
         if (!found) {
             cout << "⚠️ Book with ISBN " << inputISBN << " not found.\n";
         }
+
+        Book::displayAllBooks(books, 5); // Display updated list after borrow attempt
     }
 
     return 0;
